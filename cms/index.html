@@ -1,0 +1,566 @@
+<!DOCTYPE html><html class="hide-aside" lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>CMS管理系统 | /*这里是何思聪的个人主页*/</title><meta name="author" content="何思聪"><meta name="copyright" content="何思聪"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="CMS管理系统这是一个完整的内容管理系统，支持栏目和文章的管理。 用户登录              用户登录                      用户名:                                            密码:                               登录        栏目管理     栏目管理      &lt;form id&#x3D;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CMS管理系统">
+<meta property="og:url" content="https://hsc1234.github.io/cms/index.html">
+<meta property="og:site_name" content="&#x2F;*这里是何思聪的个人主页*&#x2F;">
+<meta property="og:description" content="CMS管理系统这是一个完整的内容管理系统，支持栏目和文章的管理。 用户登录              用户登录                      用户名:                                            密码:                               登录        栏目管理     栏目管理      &lt;form id&#x3D;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hsc1234.github.io/img/&-icon.jpg">
+<meta property="article:published_time" content="2023-12-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-08T02:05:46.788Z">
+<meta property="article:author" content="何思聪">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hsc1234.github.io/img/&-icon.jpg"><link rel="shortcut icon" href="/img/&.png"><link rel="canonical" href="https://hsc1234.github.io/cms/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'CMS管理系统',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/index.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/&amp;-icon.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-solid fa-image"></i><span> 摄影</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://music.163.com/#/artist?id=60664113"><i class="fa-fw fa fa-music"></i><span> 歌手页</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url(/img/index.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/&amp;2.png" alt="Logo"></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-solid fa-image"></i><span> 摄影</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://music.163.com/#/artist?id=60664113"><i class="fa-fw fa fa-music"></i><span> 歌手页</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">CMS管理系统</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="container" id="article-container"><h1 id="CMS管理系统"><a href="#CMS管理系统" class="headerlink" title="CMS管理系统"></a>CMS管理系统</h1><p>这是一个完整的内容管理系统，支持栏目和文章的管理。</p>
+<h2 id="用户登录"><a href="#用户登录" class="headerlink" title="用户登录"></a>用户登录</h2><div id="login-section">
+    <form id="login-form">
+        <h3>用户登录</h3>
+        <div>
+            <label for="username">用户名:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="password">密码:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">登录</button>
+    </form>
+</div>
+
+<h2 id="栏目管理"><a href="#栏目管理" class="headerlink" title="栏目管理"></a>栏目管理</h2><div id="category-section" style="display: none;">
+    <h3>栏目管理</h3>
+    
+<pre><code>&lt;form id=&quot;create-category-form&quot;&gt;
+    &lt;h4&gt;创建新栏目&lt;/h4&gt;
+    &lt;div&gt;
+        &lt;label for=&quot;category-name&quot;&gt;栏目名称:&lt;/label&gt;
+        &lt;input type=&quot;text&quot; id=&quot;category-name&quot; name=&quot;name&quot; required&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label for=&quot;category-description&quot;&gt;栏目描述:&lt;/label&gt;
+        &lt;textarea id=&quot;category-description&quot; name=&quot;description&quot; rows=&quot;3&quot;&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label for=&quot;category-slug&quot;&gt;栏目别名:&lt;/label&gt;
+        &lt;input type=&quot;text&quot; id=&quot;category-slug&quot; name=&quot;slug&quot; required&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label for=&quot;category-order&quot;&gt;排序:&lt;/label&gt;
+        &lt;input type=&quot;number&quot; id=&quot;category-order&quot; name=&quot;order&quot; value=&quot;0&quot;&gt;
+    &lt;/div&gt;
+    &lt;button type=&quot;submit&quot;&gt;创建栏目&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;div id=&quot;categories-container&quot;&gt;
+    &lt;h4&gt;栏目列表&lt;/h4&gt;
+    &lt;p&gt;正在加载栏目...&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+
+<h2 id="文章管理"><a href="#文章管理" class="headerlink" title="文章管理"></a>文章管理</h2><div id="post-section" style="display: none;">
+    <h3>文章管理</h3>
+    
+<pre><code>&lt;form id=&quot;create-post-form&quot;&gt;
+    &lt;h4&gt;创建新文章&lt;/h4&gt;
+    &lt;div&gt;
+        &lt;label for=&quot;post-title&quot;&gt;文章标题:&lt;/label&gt;
+        &lt;input type=&quot;text&quot; id=&quot;post-title&quot; name=&quot;title&quot; required&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label for=&quot;post-slug&quot;&gt;文章别名:&lt;/label&gt;
+        &lt;input type=&quot;text&quot; id=&quot;post-slug&quot; name=&quot;slug&quot; required&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label for=&quot;post-category&quot;&gt;所属栏目:&lt;/label&gt;
+        &lt;select id=&quot;post-category&quot; name=&quot;category_id&quot; required&gt;
+            &lt;option value=&quot;&quot;&gt;请选择栏目&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label for=&quot;post-excerpt&quot;&gt;文章摘要:&lt;/label&gt;
+        &lt;textarea id=&quot;post-excerpt&quot; name=&quot;excerpt&quot; rows=&quot;3&quot;&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label for=&quot;post-content&quot;&gt;文章内容:&lt;/label&gt;
+        &lt;textarea id=&quot;post-content&quot; name=&quot;content&quot; rows=&quot;10&quot; required&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label for=&quot;post-status&quot;&gt;发布状态:&lt;/label&gt;
+        &lt;select id=&quot;post-status&quot; name=&quot;status&quot;&gt;
+            &lt;option value=&quot;draft&quot;&gt;草稿&lt;/option&gt;
+            &lt;option value=&quot;published&quot;&gt;发布&lt;/option&gt;
+            &lt;option value=&quot;archived&quot;&gt;归档&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label&gt;
+            &lt;input type=&quot;checkbox&quot; id=&quot;post-featured&quot; name=&quot;featured&quot;&gt;
+            推荐文章
+        &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;button type=&quot;submit&quot;&gt;创建文章&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;div id=&quot;posts-container&quot;&gt;
+    &lt;h4&gt;文章列表&lt;/h4&gt;
+    &lt;p&gt;正在加载文章...&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+
+<h2 id="公共浏览"><a href="#公共浏览" class="headerlink" title="公共浏览"></a>公共浏览</h2><div id="public-section">
+    <h3>公共浏览</h3>
+    
+<pre><code>&lt;div id=&quot;categories-nav&quot;&gt;
+    &lt;h4&gt;栏目导航&lt;/h4&gt;
+    &lt;p&gt;正在加载栏目...&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;featured-posts&quot;&gt;
+    &lt;h4&gt;推荐文章&lt;/h4&gt;
+    &lt;p&gt;正在加载推荐文章...&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;all-posts&quot;&gt;
+    &lt;h4&gt;所有文章&lt;/h4&gt;
+    &lt;p&gt;正在加载文章...&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+</div>
+
+<script src="/js/api.js"></script>
+<script>
+// 页面加载完成后初始化
+document.addEventListener('DOMContentLoaded', function() {
+    // 检查登录状态
+    checkLoginStatus();
+    
+    // 绑定表单事件
+    bindFormEvents();
+    
+    // 加载公共内容
+    loadPublicContent();
+});
+
+// 检查登录状态
+function checkLoginStatus() {
+    if (window.blogAPI.isLoggedIn()) {
+        showAdminSections();
+        loadAdminContent();
+    } else {
+        showLoginSection();
+    }
+}
+
+// 显示登录区域
+function showLoginSection() {
+    document.getElementById('login-section').style.display = 'block';
+    document.getElementById('category-section').style.display = 'none';
+    document.getElementById('post-section').style.display = 'none';
+}
+
+// 显示管理区域
+function showAdminSections() {
+    document.getElementById('login-section').style.display = 'none';
+    document.getElementById('category-section').style.display = 'block';
+    document.getElementById('post-section').style.display = 'block';
+}
+
+// 绑定表单事件
+function bindFormEvents() {
+    // 登录表单
+    document.getElementById('login-form').addEventListener('submit', handleLogin);
+    
+    // 创建栏目表单
+    document.getElementById('create-category-form').addEventListener('submit', handleCreateCategory);
+    
+    // 创建文章表单
+    document.getElementById('create-post-form').addEventListener('submit', handleCreatePost);
+}
+
+// 处理登录
+async function handleLogin(event) {
+    event.preventDefault();
+    
+    const formData = new FormData(event.target);
+    const credentials = {
+        username: formData.get('username'),
+        password: formData.get('password')
+    };
+    
+    try {
+        const result = await window.blogAPI.login(credentials);
+        window.blogAPI.setAuthToken(result.token);
+        alert('登录成功！');
+        checkLoginStatus();
+    } catch (error) {
+        alert('登录失败: ' + error.message);
+    }
+}
+
+// 处理创建栏目
+async function handleCreateCategory(event) {
+    event.preventDefault();
+    
+    const formData = new FormData(event.target);
+    const categoryData = {
+        name: formData.get('name'),
+        description: formData.get('description'),
+        slug: formData.get('slug'),
+        order: parseInt(formData.get('order')) || 0
+    };
+    
+    try {
+        await window.blogAPI.createCategory(categoryData);
+        alert('栏目创建成功！');
+        event.target.reset();
+        loadCategories();
+    } catch (error) {
+        alert('创建栏目失败: ' + error.message);
+    }
+}
+
+// 处理创建文章
+async function handleCreatePost(event) {
+    event.preventDefault();
+    
+    const formData = new FormData(event.target);
+    const postData = {
+        title: formData.get('title'),
+        slug: formData.get('slug'),
+        category_id: parseInt(formData.get('category_id')),
+        excerpt: formData.get('excerpt'),
+        content: formData.get('content'),
+        status: formData.get('status'),
+        featured: formData.get('featured') === 'on'
+    };
+    
+    try {
+        await window.blogAPI.createPost(postData);
+        alert('文章创建成功！');
+        event.target.reset();
+        loadPosts();
+    } catch (error) {
+        alert('创建文章失败: ' + error.message);
+    }
+}
+
+// 加载管理内容
+async function loadAdminContent() {
+    await Promise.all([
+        loadCategories(),
+        loadPosts()
+    ]);
+}
+
+// 加载公共内容
+async function loadPublicContent() {
+    await Promise.all([
+        loadCategoriesNav(),
+        loadFeaturedPosts(),
+        loadAllPosts()
+    ]);
+}
+
+// 加载栏目导航
+async function loadCategoriesNav() {
+    try {
+        const categories = await window.blogAPI.getCategories();
+        displayCategoriesNav(categories);
+    } catch (error) {
+        console.error('加载栏目导航失败:', error);
+    }
+}
+
+// 显示栏目导航
+function displayCategoriesNav(categories) {
+    const container = document.getElementById('categories-nav');
+    if (!container) return;
+
+    const navHtml = categories.results.map(category => 
+        `<a href="#" onclick="loadPostsByCategory(${category.id})">${category.name}</a>`
+    ).join(' | ');
+    
+    container.innerHTML = `<h4>栏目导航</h4><div>${navHtml}</div>`;
+}
+
+// 加载推荐文章
+async function loadFeaturedPosts() {
+    try {
+        const posts = await window.blogAPI.getFeaturedPosts();
+        displayFeaturedPosts(posts);
+    } catch (error) {
+        console.error('加载推荐文章失败:', error);
+    }
+}
+
+// 显示推荐文章
+function displayFeaturedPosts(posts) {
+    const container = document.getElementById('featured-posts');
+    if (!container) return;
+
+    container.innerHTML = '<h4>推荐文章</h4>' + 
+        posts.results.map(post => `
+            <div class="featured-post">
+                <h5><a href="/post/${post.slug}">${post.title}</a></h5>
+                <p>${post.excerpt || post.content.substring(0, 100)}...</p>
+            </div>
+        `).join('');
+}
+
+// 加载所有文章
+async function loadAllPosts() {
+    try {
+        const posts = await window.blogAPI.getPosts();
+        displayAllPosts(posts);
+    } catch (error) {
+        console.error('加载所有文章失败:', error);
+    }
+}
+
+// 显示所有文章
+function displayAllPosts(posts) {
+    const container = document.getElementById('all-posts');
+    if (!container) return;
+
+    container.innerHTML = '<h4>所有文章</h4>' + 
+        posts.results.map(post => `
+            <div class="post-item">
+                <h5><a href="/post/${post.slug}">${post.title}</a></h5>
+                <p>${post.excerpt || post.content.substring(0, 150)}...</p>
+                <small>作者: ${post.author} | 栏目: ${post.category} | 浏览: ${post.views}</small>
+            </div>
+        `).join('');
+}
+
+// 按栏目加载文章
+async function loadPostsByCategory(categoryId) {
+    try {
+        const posts = await window.blogAPI.getPostsByCategory(categoryId);
+        displayAllPosts(posts);
+    } catch (error) {
+        console.error('按栏目加载文章失败:', error);
+    }
+}
+</script>
+
+<style>
+#login-section, #category-section, #post-section, #public-section {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input, form textarea, form select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+button {
+    background: #007cba;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #005a87;
+}
+
+.post-item, .category-item, .featured-post {
+    border: 1px solid #eee;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 3px;
+}
+
+.post-meta {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #666;
+}
+
+.post-meta span {
+    margin-right: 15px;
+}
+
+#categories-nav a {
+    color: #007cba;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+#categories-nav a:hover {
+    text-decoration: underline;
+}
+</style>
+</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/&amp;-icon.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">何思聪</div><div class="author-info-description">自由是对必然的认识和对客观世界的改造。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/hsc1234" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/28/hello-world/" title="Hello World">Hello World</a><time datetime="2025-03-28T04:32:47.810Z" title="发表于 2025-03-28 12:32:47">2025-03-28</time></div></div></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/03/">
+            <span class="card-archive-list-date">
+              三月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">1</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-08-15T07:47:36.398Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/index.jpg);"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025 By 何思聪</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div><div class="footer_custom_text">Welcome to my personal website!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
